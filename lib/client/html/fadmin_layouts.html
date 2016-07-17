@@ -1,0 +1,80 @@
+<template name="fAdminLayout">
+  {{#if AdminConfig}}
+  {{#if isInRole 'admin'}}
+    <div class="admin-layout">
+    {{#AdminLTE skin=admin_skin}}
+  			{{> AdminHeader}}
+  			{{> AdminSidebar }}
+				<div class="content-wrapper" style="min-height: {{minHeight}}">
+					<section class="content-header">
+						<h1>
+							{{$.Session.get 'admin_title'}}
+							<small>{{$.Session.get 'admin_subtitle'}}</small>
+						</h1>
+						<br>
+						<ol class="breadcrumb">
+							<li><a href="/admin/">Dashboard</a></li>
+							{{#if $.Session.get 'admin_collection_name'}}
+							<li><a href="/admin/view/{{$.Session.get 'admin_collection_name'}}/">{{adminCollectionLabel admin_collection_name}}</a></li>
+							{{/if}}
+							{{#if $.Session.equals 'admin_collection_page' 'new'}}
+							<li>New</li>
+							{{/if}}
+							{{#if $.Session.equals 'admin_collection_page' 'edit'}}
+							<li>Edit</li>
+							{{/if}}
+						</ol>
+					</section>
+					<section class="content">
+						{{> Template.dynamic template=main}}
+					</section>
+				</div>
+    {{/AdminLTE}}
+    </div>
+	{{else}}
+	{{> NotAdmin}}
+	{{/if}}
+	{{else}}
+	{{> NoConfig}}
+	{{/if}}
+</template>
+
+<template name="NotAdmin">
+<div class="container">
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<p class="alert alert-info" style="margin-top:100px;">
+			You need to be an admin to view this page
+		</p>
+	</div>
+</div>
+</div>
+</template>
+<template name="AdminLoading">
+	<p> Loading....</p>
+</template>
+<template name="NoConfig">
+	<p class="alert alert-info">
+		You need to define an AdminConfig object to use the admin dashboard.
+		<br/>
+		A basic config to manage the 'Posts' and 'Comments' collection would look like this:
+		<br/>
+		<code>
+		AdminConfig = {
+		<br/>
+			adminEmails: ['	ben@code2create.com'],
+		<br/>
+			collections:
+		<br/>
+				{
+		<br/>
+					Posts: {},
+		<br/>
+					Comments: {}
+		<br/>
+				}
+		<br/>
+		}
+		</code>
+	</p>
+</template>

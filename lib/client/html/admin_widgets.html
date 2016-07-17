@@ -1,0 +1,44 @@
+<template name="adminDefaultWidgets">
+	{{#each admin_collections}}
+		{{#unless $eq showWidget false}}
+			{{> adminCollectionWidget collection=name}}
+		{{/unless}}
+	{{/each}}
+</template>
+
+<template name="adminCollectionWidget">
+	<div class="{{#if class}}{{class}}{{else}}col-lg-3 col-xs-6{{/if}}">
+	{{#with adminGetCollection collection}}
+		<a href="{{adminViewPath this.name}}">
+			<div class="small-box bg-{{color}}">
+				<div class="inner">
+					<h3>
+						{{adminCollectionCount name}}
+					</h3>
+					<p>
+						{{this.label}}
+					</p>
+				</div>
+				<div class="icon">
+					<i class="fa fa-{{this.icon}}"></i>
+				</div>
+				<a class="small-box-footer">
+					See all <i class="fa fa-arrow-circle-right"></i>
+				</a>
+			</div>
+		</a>
+		{{/with}}
+	</div>
+</template>
+
+<template name="adminDeleteWidget">
+	<div class="alert alert-warning admin-alert">
+		<h4>Confirm delete</h4>
+		<div>
+			<p>Are you sure you want to delete this document ? </p>
+		</div>
+		<div>
+			<button type="button" id="confirm-delete" class="btn btn-danger">Delete</button>
+		</div>
+	</div>
+</template>
