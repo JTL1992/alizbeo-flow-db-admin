@@ -93,13 +93,17 @@ Meteor.methods
 
 	adminAddUserToRole: (_id,role)->
 		check arguments, [Match.Any]
+		console.log this.userId
 		if Roles.userIsInRole this.userId, ['admin']
-			Roles.addUsersToRoles _id, role, Roles.GLOBAL_GROUP
+			Roles.addUsersToRoles _id, role
+			console.log _id , role 
+		else
+		    console.log 'have error!'	
 
 	adminRemoveUserToRole: (_id,role)->
 		check arguments, [Match.Any]
 		if Roles.userIsInRole this.userId, ['admin']
-			Roles.removeUsersFromRoles _id, role, Roles.GLOBAL_GROUP
+			Roles.removeUsersFromRoles _id, role
 
 	adminSetCollectionSort: (collection, _sort) ->
 		check arguments, [Match.Any]

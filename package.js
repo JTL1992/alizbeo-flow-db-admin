@@ -1,6 +1,6 @@
 Package.describe({
   name: 'alizbeo:flow-db-admin',
-  version: '1.2.1',
+  version: '1.2.6',
   // Brief, one-line summary of the package.
   summary: 'Meteor Database Admin package for use with Flow Router',
   // URL to the Git repository containing the source code for this package.
@@ -28,12 +28,12 @@ Package.onUse(function(api) {
     'aldeed:collection2@2.5.0',
     'aldeed:autoform@5.7.1',
     'aldeed:template-extension@3.4.3',
-    'alanning:roles@1.2.13',
     'raix:handlebar-helpers@0.2.5',
     'momentjs:moment@2.10.6',
     'aldeed:tabular@1.4.0',
     'mfactory:admin-lte@0.0.2',
-    'check'
+    'check',
+    'alanning:roles@1.2.13'
     ],
     both);
 
