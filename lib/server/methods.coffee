@@ -23,6 +23,8 @@ Meteor.methods
 		if Roles.userIsInRole this.userId, ['admin']
 			if collection == 'Users'
 				Meteor.users.remove {_id:_id}
+			else if collection == 'Role'
+			    Roles.deleteRole Meteor.roles.findOne({_id: _id}).name
 			else
 				# global[collection].remove {_id:_id}
 				adminCollectionObject(collection).remove {_id: _id}

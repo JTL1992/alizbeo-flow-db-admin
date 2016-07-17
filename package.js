@@ -1,6 +1,6 @@
 Package.describe({
   name: 'alizbeo:flow-db-admin',
-  version: '1.2.6',
+  version: '1.3.2',
   // Brief, one-line summary of the package.
   summary: 'Meteor Database Admin package for use with Flow Router',
   // URL to the Git repository containing the source code for this package.

@@ -5,7 +5,7 @@ aldeed:collection2@2.5.0
 aldeed:simple-schema@1.3.3
 aldeed:tabular@1.4.2
 aldeed:template-extension@3.4.3
-alizbeo:flow-db-admin@1.2.6
+alizbeo:flow-db-admin@1.3.2
 allow-deny@1.0.5
 babel-compiler@6.8.4
 babel-runtime@0.1.9_1
@@ -40,7 +40,7 @@ kadira:blaze-layout@2.1.0
 kadira:flow-router@2.6.2
 less@2.6.4
 livedata@1.0.18
-local-test:alizbeo:flow-db-admin@1.2.6
+local-test:alizbeo:flow-db-admin@1.3.2
 localstorage@1.0.11
 logging@1.0.14
 meteor@1.1.16
